@@ -33,3 +33,6 @@ class Movie
         return $this->dataUscita;
     }
 }
+
+$movieFury = new Movie('Fury', '15', '17- 2-2020');
+var_dump($movieFury);
