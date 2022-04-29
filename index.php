@@ -23,6 +23,11 @@ class Movie
         return $this->nomeFilm;
     }
 
+    public function setPrezzoCinema($_prezzoCinema)
+    {
+        $this->prezzoCinema = $_prezzoCinema;
+    }
+
     public function getPrezzoCinema()
     {
         return $this->prezzoCinema;
@@ -35,4 +40,5 @@ class Movie
 }
 
 $movieFury = new Movie('Fury', '15', '17- 2-2020');
+$movieFury->setPrezzoCinema(20);
 var_dump($movieFury);
