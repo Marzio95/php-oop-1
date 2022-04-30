@@ -61,6 +61,8 @@ class Movie
     {
         if ($età < 18) {
             $this->sconto = 50;
+        } else if ($età > 60) {
+            $this->sconto = 75;
         } else {
             $this->sconto = 0;
         }
@@ -85,7 +87,7 @@ class Movie
 $movieFury = new Movie('Fury', '15', '17-2-2020');
 $movieFury->setPrezzoCinema(20);
 $movieFury->setSconto(16);
-$movieFury->setEtà(16);
+$movieFury->setEtà(20);
 $movieFury->setPrezzoFinale();
 $movieFury->setProtagonista('Brad Pitt');
 var_dump($movieFury);
@@ -100,7 +102,7 @@ var_dump($movieIoSonoLeggenda);
 
 $movieIoSonoLeggenda = new Movie('Jumanji', '10', '01-01-2022');
 $movieIoSonoLeggenda->setPrezzoCinema(30);
-$movieIoSonoLeggenda->setSconto(600);
+$movieIoSonoLeggenda->setSconto(61);
 $movieIoSonoLeggenda->setPrezzoFinale();
 $movieIoSonoLeggenda->setProtagonista('The Rock');
 $movieIoSonoLeggenda->setEtà(30);
