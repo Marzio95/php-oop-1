@@ -29,7 +29,7 @@ class Movie
 
     public function getNomeFilm()
     {
-        return 'Il nome del film è:' . $this->nomeFilm;
+        return 'Il nome del film è: ' . $this->nomeFilm;
     }
 
     public function getProtagonista()
@@ -90,25 +90,34 @@ $movieFury = new Movie('Fury', '15', '17-2-2020');
 $movieFury->setPrezzoCinema(20);
 // $movieFury->setEtà();
 $movieFury->età = 16;
-$movieFury->setPrezzoFinale();
 $movieFury->setProtagonista('Brad Pitt');
 $movieFury->setSconto();
+$movieFury->setPrezzoFinale();
 var_dump($movieFury);
 
 $movieIoSonoLeggenda = new Movie('I m Legend', '10', '21-12-2021');
 $movieIoSonoLeggenda->setPrezzoCinema(20);
 $movieIoSonoLeggenda->setPrezzoFinale();
 $movieIoSonoLeggenda->setProtagonista('Will Smith');
-$movieIoSonoLeggenda->setEtà(20);
+// $movieIoSonoLeggenda->setEtà(20);
 $movieIoSonoLeggenda->età = 20;
 $movieIoSonoLeggenda->setSconto();
 var_dump($movieIoSonoLeggenda);
 
-$movieIoSonoLeggenda = new Movie('Jumanji', '10', '01-01-2022');
-$movieIoSonoLeggenda->setPrezzoCinema(30);
-$movieIoSonoLeggenda->età = 61;
-$movieIoSonoLeggenda->setSconto();
-$movieIoSonoLeggenda->setPrezzoFinale();
-$movieIoSonoLeggenda->setProtagonista('The Rock');
-$movieIoSonoLeggenda->setEtà(61);
-var_dump($movieIoSonoLeggenda);
+
+
+// DA NOTARE CHE SE IO METTO L ETA' SOPRA LO SCONTO, LO SCONTO NON FUNZIONA PERCHE' L INFORMAZIONE DELL ETA' ARRIVA DOPO ---- STESSA COSA PER PREZZO FINALE E SCONTO
+// SE LO SCONTO E' SOTTO IL PREZZO FINALE, QUEST ULTIMO NON VIENE SCONTATO PERCHE' L INFORMAZIONE DELLO SCONTO ARRIVA DOPO 
+$movieJumanji = new Movie('Jumanji', '10', '01-01-2022');
+$movieJumanji->setPrezzoCinema(30);
+// $movieJumanji->età = 61;
+$movieJumanji->setProtagonista('The Rock');
+$movieJumanji->setPrezzoFinale();
+$movieJumanji->setSconto();
+$movieJumanji->setEtà(61);
+var_dump($movieJumanji);
+
+
+echo "<h1>{$movieFury->getNomeFilm()}</h1>";
+?>
+<h1> <?= $movieFury->getProtagonista() ?></h1>
