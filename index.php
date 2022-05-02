@@ -57,15 +57,20 @@ class Movie
         return $this->dataUscita;
     }
 
-    public function setSconto($età)
+    public function setSconto()
     {
-        if ($età < 18) {
+        if ($this->età < 18) {
             $this->sconto = 50;
-        } else if ($età > 60) {
+        } else if ($this->età > 60) {
             $this->sconto = 75;
         } else {
             $this->sconto = 0;
         }
+    }
+
+    public function setPrezzoFinale()
+    {
+        return $this->PrezzoFinale = $this->prezzoCinema - ($this->prezzoCinema / 100 * $this->sconto);
     }
 
     public function getEtà($_età)
@@ -73,37 +78,37 @@ class Movie
         return $this->età = $_età;
     }
 
-    public function setEtà()
+    public function setEtà(int $età)
     {
-        return $this->età;
-    }
+        $this->età = $età;
 
-    public function setPrezzoFinale()
-    {
-        return $this->PrezzoFinale = $this->prezzoCinema - ($this->prezzoCinema / 100 * $this->sconto);
+        return $this;
     }
 }
 
 $movieFury = new Movie('Fury', '15', '17-2-2020');
 $movieFury->setPrezzoCinema(20);
-$movieFury->setSconto(16);
-$movieFury->setEtà(20);
+// $movieFury->setEtà();
+$movieFury->età = 16;
 $movieFury->setPrezzoFinale();
 $movieFury->setProtagonista('Brad Pitt');
+$movieFury->setSconto();
 var_dump($movieFury);
 
 $movieIoSonoLeggenda = new Movie('I m Legend', '10', '21-12-2021');
 $movieIoSonoLeggenda->setPrezzoCinema(20);
-$movieIoSonoLeggenda->setSconto(20);
 $movieIoSonoLeggenda->setPrezzoFinale();
 $movieIoSonoLeggenda->setProtagonista('Will Smith');
 $movieIoSonoLeggenda->setEtà(20);
+$movieIoSonoLeggenda->età = 20;
+$movieIoSonoLeggenda->setSconto();
 var_dump($movieIoSonoLeggenda);
 
 $movieIoSonoLeggenda = new Movie('Jumanji', '10', '01-01-2022');
 $movieIoSonoLeggenda->setPrezzoCinema(30);
-$movieIoSonoLeggenda->setSconto(61);
+$movieIoSonoLeggenda->età = 61;
+$movieIoSonoLeggenda->setSconto();
 $movieIoSonoLeggenda->setPrezzoFinale();
 $movieIoSonoLeggenda->setProtagonista('The Rock');
-$movieIoSonoLeggenda->setEtà(30);
+$movieIoSonoLeggenda->setEtà(61);
 var_dump($movieIoSonoLeggenda);
